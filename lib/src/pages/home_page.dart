@@ -14,13 +14,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 16, 16, 16),
-      body: Column(
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 16, 16, 16),
+      body: const Column(
         children: <Widget>[
           HeaderWidget(),
           ListCharacter()
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromARGB(255, 95, 25, 208),
+        onPressed:(){},
+        child: const Icon(Icons.add),
       ),
     );
   }

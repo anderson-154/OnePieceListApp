@@ -54,14 +54,66 @@ class _ListCharacterState extends State<ListCharacter> {
             height: 10,
           ),
           Text('Personajes', style: titleTextStyle),
-          //blockCharacters('Nombre',0xff21E295,'imagen')
+          blockCharacters('Nombre',0xff21E295,'o1'),
+          blockCharacters('Nombre',0xff21E295,'o2'),
+          blockCharacters('Nombre',0xff21E295,'o3'),
+          blockCharacters('Nombre',0xff21E295,'o4'),
+          blockCharacters('Nombre',0xff21E295,'o5'),
+          blockCharacters('Nombre',0xff21E295,'o6'),
+          
 
         ],
       ),
     );
   }
 
-  
+  Widget blockCharacters (String name, int color, String img){
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: const Color.fromARGB(82, 43, 43, 43),
+      ),
+      height: 65,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(color),
+                      blurRadius: 8,
+                      offset: const Offset(0, 0),
+                      blurStyle: BlurStyle.normal
+                    ),
+                  ],
+                borderRadius: BorderRadius.circular(20)
+                ),
+                child: Image.asset('assets/$img.png'),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(name, style: const TextStyle(
+                fontSize: 16,
+                color: Colors.white
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            icon: const Icon(Icons.more_vert_outlined, size: 28, color: Colors.white),
+              onPressed: () {}
+          )
+        ],
+      ),
+    );
+  }
 
   Widget blockFront (String img, String title, String subtitle){
     return Column(
