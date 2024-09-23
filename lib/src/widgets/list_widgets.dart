@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onepiecelist/src/pages/detail_page.dart';
 
 class ListCharacter extends StatefulWidget {
   const ListCharacter({super.key});
@@ -68,49 +69,54 @@ class _ListCharacterState extends State<ListCharacter> {
   }
 
   Widget blockCharacters (String name, int color, String img){
-    return Container(
-      margin: const EdgeInsets.only(bottom: 20),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: const Color.fromARGB(82, 43, 43, 43),
-      ),
-      height: 65,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(color),
-                      blurRadius: 8,
-                      offset: const Offset(0, 0),
-                      blurStyle: BlurStyle.normal
-                    ),
-                  ],
-                borderRadius: BorderRadius.circular(20)
+    return GestureDetector(
+      onTap: () => {
+        Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> const DetailPage())))
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: const Color.fromARGB(82, 43, 43, 43),
+        ),
+        height: 65,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(color),
+                        blurRadius: 8,
+                        offset: const Offset(0, 0),
+                        blurStyle: BlurStyle.normal
+                      ),
+                    ],
+                  borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Image.asset('assets/$img.png'),
                 ),
-                child: Image.asset('assets/$img.png'),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(name, style: const TextStyle(
-                fontSize: 16,
-                color: Colors.white
+                const SizedBox(
+                  width: 10,
                 ),
-              ),
-            ],
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert_outlined, size: 28, color: Colors.white),
-              onPressed: () {}
-          )
-        ],
+                Text(name, style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white
+                  ),
+                ),
+              ],
+            ),
+            IconButton(
+              icon: const Icon(Icons.more_vert_outlined, size: 28, color: Colors.white),
+                onPressed: () {}
+            )
+          ],
+        ),
       ),
     );
   }
