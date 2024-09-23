@@ -55,12 +55,12 @@ class _ListCharacterState extends State<ListCharacter> {
             height: 10,
           ),
           Text('Personajes', style: titleTextStyle),
-          blockCharacters('Nombre',0xff21E295,'o1'),
-          blockCharacters('Nombre',0xff21E295,'o2'),
-          blockCharacters('Nombre',0xff21E295,'o3'),
-          blockCharacters('Nombre',0xff21E295,'o4'),
-          blockCharacters('Nombre',0xff21E295,'o5'),
-          blockCharacters('Nombre',0xff21E295,'o6'),
+          blockCharacters('Brook',0xffCBE295,'o1'),
+          blockCharacters('Luffy',0xffF82A2D,'o2'),
+          blockCharacters('Portgas D. Ace',0xffFFCB28,'o3'),
+          blockCharacters('Boa Hancock',0xffFE4649,'o4'),
+          blockCharacters('Boa Hancock',0xffDF1C6A,'o5'),
+          blockCharacters('Roronoa Zoro',0xff21E295,'o6'),
           
 
         ],
@@ -71,7 +71,7 @@ class _ListCharacterState extends State<ListCharacter> {
   Widget blockCharacters (String name, int color, String img){
     return GestureDetector(
       onTap: () => {
-        Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> const DetailPage())))
+        Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> DetailPage(color: color, image: 'assets/$img.png', name: name,))))
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
